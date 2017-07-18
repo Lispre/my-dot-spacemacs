@@ -38,12 +38,15 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     auto-completion
+     ;; auto-completion
      better-defaults
      emacs-lisp
      c-c++
+     nim
+     evil-commentary
      git
      markdown
+     common-lisp
      ;; org
      ;; (shell :variables
      ;;        shell-default-height 30
@@ -134,7 +137,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata"
+   dotspacemacs-default-font '("SF Mono"
                                :size 22
                                :weight normal
                                :width normal
@@ -308,6 +311,7 @@ you should place your code here."
   (setq-default c-default-style "bsd")
   (setq-default c-basic-offset 4)
   (setq-default tab-width 4)
+  (spacemacs/toggle-indent-guide-globally-on)
 
   (defun copy-to-clipboard ()
       "Copies selection to x-clipboard."
@@ -338,6 +342,7 @@ you should place your code here."
       )
   (evil-leader/set-key "o y" 'copy-to-clipboard)
   (evil-leader/set-key "o p" 'paste-from-clipboard)
+  (setq inferior-lisp-program "C:/Program Files/Steel Bank Common Lisp/1.3.10/sbcl.exe")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -368,7 +373,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (lua-mode goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa spaceline paradox ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil package-build spacemacs-theme))))
+    (evil-commentary nim-mode commenter epc ctable concurrent deferred flycheck-nim flycheck markdown-toc gitconfig-mode helm-company git-link evil-magit disaster company-c-headers yasnippet magit magit-popup git-commit with-editor markdown-mode company winum unfill symon string-inflection realgud test-simple loc-changes load-relative password-generator fuzzy evil-lion editorconfig company-lua slime-company slime common-lisp-snippets goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async quelpa spaceline paradox ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil package-build spacemacs-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
